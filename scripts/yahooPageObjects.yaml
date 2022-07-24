@@ -1,0 +1,29 @@
+---
+yahoo:
+  home:
+    signIn: xpath=/html/body/header//div/div/div/div/div[3]/div/div[3]/div[1][contains(.,"Sign in")]
+    financePage: id=root_8
+    account: id=ybarAccountMenuOpener
+    signOut: id=profile-signout-link
+    newAccount: xpath=//*[@id="account-switcher"]/div[2]/a
+  finance:
+    home: id=uh-tb-home
+    navbar:
+      marketData: xpath=/html/body//li[contains(.,"Market Data")]
+      marketDataCalendar: xpath=/html/body//nav//li[2]/div[2]//li[1][contains(.,"Calendar")]
+    calendar:
+      dateRange:  xpath=//*[@id="fin-cal-events"]/div[1]/div/div/div/div/span
+      datePicker: xpath=//*[@id="dropdown-menu"]/div/div/div/form/input
+      dateApply: xpath=//*[@id="dropdown-menu"]/div/div/div/form/button
+      eventDateTitle: xpath=//*[@id="fin-cal-events"]/div[2]/ul/li[3]
+      eventDateEarnings: xpath=//*[@id="fin-cal-events"]/div[2]/ul/li[3]/a[1]
+      eventDateSplits: xpath=//*[@id="fin-cal-events"]/div[2]/ul/li[3]/a[2]
+      eventDatePricing: xpath=//*[@id="fin-cal-events"]/div[2]/ul/li[3]/a[3]
+      eventDateEvents: xpath=//*[@id="fin-cal-events"]/div[2]/ul/li[3]/a[4]
+  cookies:
+    acceptButton: xpath=//button[contains(.,"Accept all")]
+  login:
+    username: id=login-username
+    signIn: id=login-signin
+    password: id=login-passwd
+    usernameError: id=username-error

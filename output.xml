@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.2 (Python 3.9.4 on win32)" generated="20220724 11:36:50.307" rpa="false" schemaversion="2">
+<suite id="s1" name="Uitest" source="C:\Users\Melvin\CassiniTestExercise\tests\uitest.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
+<arg>https://yahoo.com/</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220724 11:36:50.640" level="INFO">Opening browser 'firefox' to base url 'https://yahoo.com/'.</msg>
+<msg timestamp="20220724 11:36:50.641" level="INFO">Firefox driver log is always forced to to: C:\Users\Melvin\CassiniTestExercise\geckodriver-11.log</msg>
+<status status="PASS" starttime="20220724 11:36:50.640" endtime="20220724 11:36:56.126"/>
+</kw>
+<test id="s1-t1" name="Login Test With Users">
+<kw name="Accept Cookies" library="uikeywords" type="SETUP">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${yahoo.cookies.acceptButton}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220724 11:36:56.127" endtime="20220724 11:36:56.135"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.cookies.acceptButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:56.136" level="INFO">Clicking element 'xpath=//button[contains(.,"Accept all")]'.</msg>
+<status status="PASS" starttime="20220724 11:36:56.135" endtime="20220724 11:36:57.773"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:56.127" endtime="20220724 11:36:57.774"/>
+</kw>
+<kw name="List Username Data">
+<var>${usernameData}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${usernameList}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220724 11:36:57.774" level="INFO">${usernameList} = []</msg>
+<status status="PASS" starttime="20220724 11:36:57.774" endtime="20220724 11:36:57.774"/>
+</kw>
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>filename=testdata/credentials.xlsx</arg>
+<arg>doc_id=Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20220724 11:36:57.774" endtime="20220724 11:36:57.778"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>5</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${username}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.778" level="INFO">${username} = username</msg>
+<status status="PASS" starttime="20220724 11:36:57.778" endtime="20220724 11:36:57.778"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.778" endtime="20220724 11:36:57.778"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${usernameList}</arg>
+<arg>${username}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.779" endtime="20220724 11:36:57.779"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.778" endtime="20220724 11:36:57.779"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${username}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.780" level="INFO">${username} = robottest101</msg>
+<status status="PASS" starttime="20220724 11:36:57.779" endtime="20220724 11:36:57.780"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.780" endtime="20220724 11:36:57.780"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${usernameList}</arg>
+<arg>${username}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.780" endtime="20220724 11:36:57.780"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.779" endtime="20220724 11:36:57.780"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${username}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.780" level="INFO">${username} = SecondTestLogin</msg>
+<status status="PASS" starttime="20220724 11:36:57.780" endtime="20220724 11:36:57.780"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.781" endtime="20220724 11:36:57.781"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${usernameList}</arg>
+<arg>${username}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.781" endtime="20220724 11:36:57.781"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.780" endtime="20220724 11:36:57.781"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${username}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.781" level="INFO">${username} = ThirdTestLogin</msg>
+<status status="PASS" starttime="20220724 11:36:57.781" endtime="20220724 11:36:57.781"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.781" endtime="20220724 11:36:57.782"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${usernameList}</arg>
+<arg>${username}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.782" endtime="20220724 11:36:57.782"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.781" endtime="20220724 11:36:57.782"/>
+</iter>
+<status status="PASS" starttime="20220724 11:36:57.778" endtime="20220724 11:36:57.782"/>
+</for>
+<msg timestamp="20220724 11:36:57.782" level="INFO">${usernameData} = ['username', 'robottest101', 'SecondTestLogin', 'ThirdTestLogin']</msg>
+<status status="PASS" starttime="20220724 11:36:57.774" endtime="20220724 11:36:57.782"/>
+</kw>
+<kw name="List Password Data">
+<var>${passwordData}</var>
+<kw name="Create List" library="BuiltIn">
+<var>${passwordList}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220724 11:36:57.783" level="INFO">${passwordList} = []</msg>
+<status status="PASS" starttime="20220724 11:36:57.782" endtime="20220724 11:36:57.783"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>5</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${password}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=2</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.783" level="INFO">${password} = password</msg>
+<status status="PASS" starttime="20220724 11:36:57.783" endtime="20220724 11:36:57.783"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.783" endtime="20220724 11:36:57.783"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${passwordList}</arg>
+<arg>${password}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.783" endtime="20220724 11:36:57.783"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.783" endtime="20220724 11:36:57.783"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${password}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=2</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.784" level="INFO">${password} = notapassword01</msg>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.784"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.784"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${passwordList}</arg>
+<arg>${password}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.784"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.784"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${password}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=2</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.785" level="INFO">${password} = TestAbc_12!</msg>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.785"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.785" endtime="20220724 11:36:57.785"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${passwordList}</arg>
+<arg>${password}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.785" endtime="20220724 11:36:57.785"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.784" endtime="20220724 11:36:57.785"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${password}</var>
+<arg>row_num=${i}</arg>
+<arg>col_num=2</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20220724 11:36:57.785" level="INFO">${password} = TestAbc_12!</msg>
+<status status="PASS" starttime="20220724 11:36:57.785" endtime="20220724 11:36:57.786"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220724 11:36:57.786" endtime="20220724 11:36:57.786"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${passwordList}</arg>
+<arg>${password}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220724 11:36:57.786" endtime="20220724 11:36:57.786"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.785" endtime="20220724 11:36:57.786"/>
+</iter>
+<status status="PASS" starttime="20220724 11:36:57.783" endtime="20220724 11:36:57.786"/>
+</for>
+<msg timestamp="20220724 11:36:57.786" level="INFO">${passwordData} = ['password', 'notapassword01', 'TestAbc_12!', 'TestAbc_12!']</msg>
+<status status="PASS" starttime="20220724 11:36:57.782" endtime="20220724 11:36:57.786"/>
+</kw>
+<kw name="Is Element Visible" library="uikeywords">
+<var>${status}</var>
+<arg>${yahoo.home.signIn}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${element}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220724 11:36:57.904" level="INFO">Element 'xpath=/html/body/header//div/div/div/div/div[3]/div/div[3]/div[1][contains(.,"Sign in")]' is displayed.</msg>
+<status status="PASS" starttime="20220724 11:36:57.787" endtime="20220724 11:36:57.904"/>
+</kw>
+<msg timestamp="20220724 11:36:57.904" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20220724 11:36:57.787" endtime="20220724 11:36:57.905"/>
+</kw>
+<msg timestamp="20220724 11:36:57.905" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20220724 11:36:57.787" endtime="20220724 11:36:57.905"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${status}'=='True'</arg>
+<arg>Navigate To Sign In Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Navigate To Sign In Page" library="uikeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.home.signIn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:36:57.906" endtime="20220724 11:36:57.942"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.home.signIn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:57.943" level="INFO">Clicking element 'xpath=/html/body/header//div/div/div/div/div[3]/div/div[3]/div[1][contains(.,"Sign in")]'.</msg>
+<status status="PASS" starttime="20220724 11:36:57.942" endtime="20220724 11:36:58.811"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.906" endtime="20220724 11:36:58.811"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:57.905" endtime="20220724 11:36:58.811"/>
+</kw>
+<kw name="Enter Username And Sign In" library="uikeywords">
+<arg>${usernameData}[1]</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.login.signIn}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:36:58.812" endtime="20220724 11:36:58.827"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${yahoo.login.username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:58.827" level="INFO">Typing text 'robottest101' into text field 'id=login-username'.</msg>
+<status status="PASS" starttime="20220724 11:36:58.827" endtime="20220724 11:36:58.850"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.login.signIn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:58.850" level="INFO">Clicking element 'id=login-signin'.</msg>
+<status status="PASS" starttime="20220724 11:36:58.850" endtime="20220724 11:36:59.351"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:58.811" endtime="20220724 11:36:59.351"/>
+</kw>
+<kw name="Is Element Visible" library="uikeywords">
+<var>${status}</var>
+<arg>${yahoo.login.usernameError}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${element}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220724 11:36:59.376" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220724 11:36:59.354" endtime="20220724 11:36:59.376"/>
+</kw>
+<msg timestamp="20220724 11:36:59.377" level="FAIL">Element with locator 'id=username-error' not found.</msg>
+<status status="FAIL" starttime="20220724 11:36:59.352" endtime="20220724 11:36:59.377"/>
+</kw>
+<msg timestamp="20220724 11:36:59.377" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:36:59.352" endtime="20220724 11:36:59.378"/>
+</kw>
+<msg timestamp="20220724 11:36:59.378" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:36:59.352" endtime="20220724 11:36:59.378"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${status}'=='True'</arg>
+<arg>Fail</arg>
+<arg>Username Invalid</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220724 11:36:59.378" endtime="20220724 11:36:59.378"/>
+</kw>
+<kw name="Enter Password And Sign In" library="uikeywords">
+<arg>${passwordData}[1]</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.login.password}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:36:59.379" endtime="20220724 11:36:59.387"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${yahoo.login.password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:59.388" level="INFO">Typing text 'notapassword01' into text field 'id=login-passwd'.</msg>
+<status status="PASS" starttime="20220724 11:36:59.387" endtime="20220724 11:36:59.397"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.login.signIn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:36:59.397" level="INFO">Clicking element 'id=login-signin'.</msg>
+<status status="PASS" starttime="20220724 11:36:59.397" endtime="20220724 11:37:00.965"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:59.379" endtime="20220724 11:37:00.965"/>
+</kw>
+<kw name="Is Element Visible" library="uikeywords">
+<var>${status}</var>
+<arg>${yahoo.home.signIn}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${element}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220724 11:37:01.136" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220724 11:37:00.990" endtime="20220724 11:37:01.136"/>
+</kw>
+<msg timestamp="20220724 11:37:01.137" level="FAIL">Element with locator 'xpath=/html/body/header//div/div/div/div/div[3]/div/div[3]/div[1][contains(.,"Sign in")]' not found.</msg>
+<status status="FAIL" starttime="20220724 11:37:00.967" endtime="20220724 11:37:01.137"/>
+</kw>
+<msg timestamp="20220724 11:37:01.137" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:37:00.966" endtime="20220724 11:37:01.137"/>
+</kw>
+<msg timestamp="20220724 11:37:01.137" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:37:00.966" endtime="20220724 11:37:01.137"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${status}'=='False'</arg>
+<arg>Sign Out From Yahoo Home</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Sign Out From Yahoo Home" library="uikeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.home.account}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:01.138" endtime="20220724 11:37:01.152"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${yahoo.home.account}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20220724 11:37:01.153" level="INFO">Simulating Mouse Over on element 'id=ybarAccountMenuOpener'.</msg>
+<status status="PASS" starttime="20220724 11:37:01.152" endtime="20220724 11:37:01.437"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.home.signOut}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:01.437" endtime="20220724 11:37:01.876"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.home.signOut}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:01.877" level="INFO">Clicking element 'id=profile-signout-link'.</msg>
+<status status="PASS" starttime="20220724 11:37:01.876" endtime="20220724 11:37:02.917"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:01.138" endtime="20220724 11:37:02.917"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:01.137" endtime="20220724 11:37:02.917"/>
+</kw>
+<kw name="Navigate to Yahoo and Clear Cookies" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20220724 11:37:02.917" endtime="20220724 11:37:02.920"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://yahoo.com/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220724 11:37:02.920" level="INFO">Opening url 'https://yahoo.com/'</msg>
+<status status="PASS" starttime="20220724 11:37:02.920" endtime="20220724 11:37:03.436"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:02.917" endtime="20220724 11:37:03.436"/>
+</kw>
+<doc>Use excel data for username and password</doc>
+<tag>UI</tag>
+<status status="PASS" starttime="20220724 11:36:56.126" endtime="20220724 11:37:03.436"/>
+</test>
+<test id="s1-t2" name="Event Calendar Test">
+<kw name="Accept Cookies" library="uikeywords" type="SETUP">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${yahoo.cookies.acceptButton}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220724 11:37:03.437" endtime="20220724 11:37:03.439"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.cookies.acceptButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:03.440" level="INFO">Clicking element 'xpath=//button[contains(.,"Accept all")]'.</msg>
+<status status="PASS" starttime="20220724 11:37:03.439" endtime="20220724 11:37:05.091"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:03.437" endtime="20220724 11:37:05.092"/>
+</kw>
+<kw name="Navigate To Finance Page" library="uikeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.home.financePage}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:05.092" endtime="20220724 11:37:05.237"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.home.financePage}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:05.238" level="INFO">Clicking element 'id=root_8'.</msg>
+<status status="PASS" starttime="20220724 11:37:05.238" endtime="20220724 11:37:06.741"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:05.092" endtime="20220724 11:37:06.741"/>
+</kw>
+<kw name="Navigate To Calendar" library="uikeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.finance.navbar.marketData}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:06.742" endtime="20220724 11:37:06.839"/>
+</kw>
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${yahoo.finance.navbar.marketData}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20220724 11:37:06.839" level="INFO">Simulating Mouse Over on element 'xpath=/html/body//li[contains(.,"Market Data")]'.</msg>
+<status status="PASS" starttime="20220724 11:37:06.839" endtime="20220724 11:37:07.154"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.finance.navbar.marketDataCalendar}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:07.154" endtime="20220724 11:37:07.405"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.finance.navbar.marketDataCalendar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:07.406" level="INFO">Clicking element 'xpath=/html/body//nav//li[2]/div[2]//li[1][contains(.,"Calendar")]'.</msg>
+<status status="PASS" starttime="20220724 11:37:07.405" endtime="20220724 11:37:08.756"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:06.741" endtime="20220724 11:37:08.757"/>
+</kw>
+<kw name="Set Event Date In Date Picker" library="uikeywords">
+<arg>07/12/2022</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.eventDateTitle}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:08.757" endtime="20220724 11:37:08.828"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.dateRange}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:08.829" level="INFO">Clicking element 'xpath=//*[@id="fin-cal-events"]/div[1]/div/div/div/div/span'.</msg>
+<status status="PASS" starttime="20220724 11:37:08.828" endtime="20220724 11:37:09.054"/>
+</kw>
+<kw name="Is Element Visible" library="uikeywords">
+<var>${status}</var>
+<arg>${yahoo.finance.calendar.datePicker}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${element}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220724 11:37:09.093" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220724 11:37:09.057" endtime="20220724 11:37:09.093"/>
+</kw>
+<msg timestamp="20220724 11:37:09.093" level="FAIL">Element with locator 'xpath=//*[@id="dropdown-menu"]/div/div/div/form/input' not found.</msg>
+<status status="FAIL" starttime="20220724 11:37:09.055" endtime="20220724 11:37:09.093"/>
+</kw>
+<msg timestamp="20220724 11:37:09.093" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:37:09.055" endtime="20220724 11:37:09.093"/>
+</kw>
+<msg timestamp="20220724 11:37:09.093" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20220724 11:37:09.055" endtime="20220724 11:37:09.093"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${status}'=='False'</arg>
+<arg>Click Element</arg>
+<arg>${yahoo.finance.calendar.dateRange}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.dateRange}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:09.094" level="INFO">Clicking element 'xpath=//*[@id="fin-cal-events"]/div[1]/div/div/div/div/span'.</msg>
+<status status="PASS" starttime="20220724 11:37:09.094" endtime="20220724 11:37:09.309"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:09.094" endtime="20220724 11:37:09.309"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.datePicker}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:09.309" endtime="20220724 11:37:09.319"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.datePicker}</arg>
+<arg>${date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:09.319" level="INFO">Typing text '07/12/2022' into text field 'xpath=//*[@id="dropdown-menu"]/div/div/div/form/input'.</msg>
+<status status="PASS" starttime="20220724 11:37:09.319" endtime="20220724 11:37:09.362"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.dateApply}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:09.363" level="INFO">Clicking element 'xpath=//*[@id="dropdown-menu"]/div/div/div/form/button'.</msg>
+<status status="PASS" starttime="20220724 11:37:09.362" endtime="20220724 11:37:09.578"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${yahoo.finance.calendar.eventDateTitle}</arg>
+<arg>1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220724 11:37:09.578" endtime="20220724 11:37:09.587"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:08.757" endtime="20220724 11:37:09.587"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220724 11:37:11.600" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220724 11:37:09.588" endtime="20220724 11:37:11.600"/>
+</kw>
+<kw name="Value For Earnings Should Be" library="uikeywords">
+<arg>6</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${expectedValue}</var>
+<arg>${value}</arg>
+<arg>Earnings</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220724 11:37:11.601" level="INFO">${expectedValue} = 6 Earnings</msg>
+<status status="PASS" starttime="20220724 11:37:11.601" endtime="20220724 11:37:11.601"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${yahoo.finance.calendar.eventDateEarnings}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:11.612" level="INFO">${response} = 6 Earnings</msg>
+<status status="PASS" starttime="20220724 11:37:11.601" endtime="20220724 11:37:11.612"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${expectedValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220724 11:37:11.612" endtime="20220724 11:37:11.612"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:11.600" endtime="20220724 11:37:11.612"/>
+</kw>
+<kw name="Value For Stock Splits Should Be" library="uikeywords">
+<arg>25</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${expectedValue}</var>
+<arg>${value}</arg>
+<arg>Stock splits</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220724 11:37:11.613" level="INFO">${expectedValue} = 25 Stock splits</msg>
+<status status="PASS" starttime="20220724 11:37:11.613" endtime="20220724 11:37:11.613"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${yahoo.finance.calendar.eventDateSplits}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:11.619" level="INFO">${response} = 25 Stock splits</msg>
+<status status="PASS" starttime="20220724 11:37:11.613" endtime="20220724 11:37:11.619"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${expectedValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220724 11:37:11.619" endtime="20220724 11:37:11.619"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:11.613" endtime="20220724 11:37:11.619"/>
+</kw>
+<kw name="Value For IPO Pricing Should Be" library="uikeywords">
+<arg>5</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${expectedValue}</var>
+<arg>${value}</arg>
+<arg>IPO pricing</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220724 11:37:11.620" level="INFO">${expectedValue} = 5 IPO pricing</msg>
+<status status="PASS" starttime="20220724 11:37:11.619" endtime="20220724 11:37:11.620"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${yahoo.finance.calendar.eventDatePricing}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:11.624" level="INFO">${response} = 5 IPO pricing</msg>
+<status status="PASS" starttime="20220724 11:37:11.620" endtime="20220724 11:37:11.624"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${expectedValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220724 11:37:11.624" endtime="20220724 11:37:11.625"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:11.619" endtime="20220724 11:37:11.625"/>
+</kw>
+<kw name="Value For Economic Events Should Be" library="uikeywords">
+<arg>7</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${expectedValue}</var>
+<arg>${value}</arg>
+<arg>Economic events</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220724 11:37:11.625" level="INFO">${expectedValue} = 7 Economic events</msg>
+<status status="PASS" starttime="20220724 11:37:11.625" endtime="20220724 11:37:11.625"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${yahoo.finance.calendar.eventDateEvents}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220724 11:37:11.630" level="INFO">${response} = 7 Economic events</msg>
+<status status="PASS" starttime="20220724 11:37:11.625" endtime="20220724 11:37:11.630"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${expectedValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220724 11:37:11.630" endtime="20220724 11:37:11.630"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:11.625" endtime="20220724 11:37:11.630"/>
+</kw>
+<kw name="Navigate to Yahoo and Clear Cookies" type="TEARDOWN">
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" starttime="20220724 11:37:11.630" endtime="20220724 11:37:11.632"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://yahoo.com/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220724 11:37:11.632" level="INFO">Opening url 'https://yahoo.com/'</msg>
+<status status="PASS" starttime="20220724 11:37:11.632" endtime="20220724 11:37:12.022"/>
+</kw>
+<status status="PASS" starttime="20220724 11:37:11.630" endtime="20220724 11:37:12.022"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" starttime="20220724 11:37:03.437" endtime="20220724 11:37:12.022"/>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220724 11:37:12.023" endtime="20220724 11:37:13.441"/>
+</kw>
+<status status="PASS" starttime="20220724 11:36:50.308" endtime="20220724 11:37:13.441"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">UI</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Uitest">Uitest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
